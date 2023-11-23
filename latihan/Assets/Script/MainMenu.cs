@@ -14,4 +14,9 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
+
+    void Start()
+    {
+        Time.timeScale = 1;
+    }
 }

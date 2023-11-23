@@ -155,11 +155,11 @@ Transform:
   m_Children:
   - {fileID: 795366280}
   - {fileID: 1217327236}
-  - {fileID: 508996351}
   - {fileID: 236309999}
   - {fileID: 452591850}
   - {fileID: 116670045}
   - {fileID: 1674627901}
+  - {fileID: 1211103504}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &24913109
@@ -349,7 +349,7 @@ GameObject:
   - component: {fileID: 116670047}
   - component: {fileID: 116670046}
   m_Layer: 0
-  m_Name: Layer-5
+  m_Name: Layer-4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1266,7 +1266,7 @@ GameObject:
   - component: {fileID: 236310001}
   - component: {fileID: 236310000}
   m_Layer: 0
-  m_Name: Layer-3
+  m_Name: Layer-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1815,7 +1815,7 @@ GameObject:
   - component: {fileID: 452591851}
   - component: {fileID: 452591852}
   m_Layer: 0
-  m_Name: Layer-4
+  m_Name: Layer-3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2074,10 +2074,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 10.1787, y: 4.8105006, z: 0}
-  m_LocalScale: {x: 0.8713955, y: 0.8713956, z: 0.87139547}
+  m_LocalScale: {x: 0.8713955, y: 0.8713955, z: 0.87139547}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 24913108}
+  m_Father: {fileID: 1211103504}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &508996352
 SpriteRenderer:
@@ -2119,7 +2119,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -2
+  m_SortingOrder: -3
   m_Sprite: {fileID: 21300000, guid: c34cd69c5f8d12f4e9198672f4741684, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2140,10 +2140,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 508996350}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48455706fee6ec04e99e9f6b07330302, type: 3}
+  m_Script: {fileID: 11500000, guid: 51d04d50c36f52a4abef28f357203b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 573636105}
+  xFactor: 0.03
 --- !u!1 &518020112
 GameObject:
   m_ObjectHideFlags: 0
@@ -3310,7 +3311,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -3
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: b10bb7d9b66309941b2c722a963edc23, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4711,6 +4712,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
+--- !u!1 &1211103503
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1211103504}
+  - component: {fileID: 1211103505}
+  m_Layer: 0
+  m_Name: ParallaxStatic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1211103504
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211103503}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 508996351}
+  m_Father: {fileID: 24913108}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1211103505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211103503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48455706fee6ec04e99e9f6b07330302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 573636105}
 --- !u!1 &1217327235
 GameObject:
   m_ObjectHideFlags: 0
@@ -5956,7 +6003,7 @@ GameObject:
   - component: {fileID: 1674627903}
   - component: {fileID: 1674627902}
   m_Layer: 0
-  m_Name: Layer-6
+  m_Name: Layer-5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
