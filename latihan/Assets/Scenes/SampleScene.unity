@@ -4025,6 +4025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36ec4e9a8b0ebad43aef18caaafed43a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioManager: {fileID: 152794645}
   pauseMenu: {fileID: 331615202}
   isPaused: 0
 --- !u!1 &893513757

@@ -38,5 +38,17 @@ public class AudioManager : MonoBehaviour
     {
         playerSFX.Play();
     }
+    public void StopAllAudio()
+    {
+        musicSource.Stop();
+        SFXSource.Stop();
+        playerSFX.Stop();
+    }
+    public void PlayAllAudio ()
+    {
+        musicSource.Play();
+        SFXSource.Play();
+        playerSFX.Play();
+    }
 
 }
