@@ -9,6 +9,8 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] AudioSource SFXSource;
 
+    [SerializeField] AudioSource playerSFX;
+
     [Header("--- Audio Clip ")]
 
     public AudioClip background;
@@ -17,11 +19,8 @@ public class AudioManager : MonoBehaviour
 
     public AudioClip checkpoint;
 
-    public AudioClip Running;
+    public AudioClip potion;
 
-    //public AudioClip portalIn;
-
-    //public AudioClip portalOut;
 
     private void Start()
     {
@@ -33,6 +32,11 @@ public class AudioManager : MonoBehaviour
     public void PlaySFX (AudioClip clip)
     {
         SFXSource.PlayOneShot (clip);
+    }
+
+    public void PlayerAudio()
+    {
+        playerSFX.Play();
     }
 
 }

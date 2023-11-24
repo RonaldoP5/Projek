@@ -29,12 +29,9 @@ public class Bergerak : MonoBehaviour
     private float nextDashTime = 0f; // Waktu kapan karakter dapat "dash" lagi
 
 
-    private void Awake()
-    {
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
-    }
     void Start()
     {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -49,12 +46,12 @@ public class Bergerak : MonoBehaviour
         if (rb.velocity.x != 0)
         {
             isWalking = true;
-            audioManager.PlaySFX(audioManager.Running);
+            
         }
         else
         {
-
             isWalking = false;
+            audioManager.PlayerAudio();
         }
 
         if (isClimbing)

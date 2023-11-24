@@ -3,6 +3,7 @@ using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {
+     AudioManager audioManager;
     public float maxHealth = 100f;
     private float currentHealth;
     private Vector3 respawnPoint;
@@ -26,6 +27,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Start()
     {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
         bergerak = GetComponent<Bergerak>();
@@ -81,6 +83,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void Heal(float healAmount)
     {
+        audioManager.PlaySFX(audioManager.potion);
         currentHealth += healAmount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         healthBar.SetHealth(currentHealth);
