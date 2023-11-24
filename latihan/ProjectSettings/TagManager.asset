@@ -9,6 +9,7 @@ TagManager:
   - HealingItem
   - Checkpoint
   - Enemy
+  - Audio
   layers:
   - Default
   - TransparentFX

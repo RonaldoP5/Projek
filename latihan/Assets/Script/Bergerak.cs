@@ -3,6 +3,7 @@ using UnityEngine.UIElements;
 
 public class Bergerak : MonoBehaviour
 {
+    AudioManager audioManager;
     public Transform attackPos;
     float attackPosX;
     private bool isWalking;
@@ -27,6 +28,11 @@ public class Bergerak : MonoBehaviour
     public float dashCooldown = 3f; // Waktu cooldown antara "dash"
     private float nextDashTime = 0f; // Waktu kapan karakter dapat "dash" lagi
 
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -43,6 +49,7 @@ public class Bergerak : MonoBehaviour
         if (rb.velocity.x != 0)
         {
             isWalking = true;
+            audioManager.PlaySFX(audioManager.Running);
         }
         else
         {
