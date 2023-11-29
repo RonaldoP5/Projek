@@ -50,4 +50,10 @@ public class PauseMenu : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
+    public void ReturnToMainMenu()
+    {
+        // Menambahkan pemanggilan kembali ke menu utama dari tombol Pause Menu
+        GameManager.Instance.ReturnToMainMenu();
+    }
 }

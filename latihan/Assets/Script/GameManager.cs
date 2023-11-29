@@ -1,54 +1,45 @@
-using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Menyimpan checkpoint terakhir
-    private Vector3 lastCheckpointPosition;
+    public static GameManager Instance;
 
-    // Referensi ke objek player
-    private GameObject player;
+    // ... (variabel lainnya)
 
-    private void Start()
+    private void Awake()
     {
-        // Temukan objek player di awal permainan
-        player = GameObject.FindGameObjectWithTag("Player");
-
-        if (player != null)
+        if (Instance == null)
         {
-            // Set respawn point awal
-            lastCheckpointPosition = player.transform.position;
+            Instance = this;
         }
         else
         {
-            Debug.LogError("Player object not found in the scene!");
+            Destroy(gameObject);
         }
     }
 
-    // Fungsi untuk memanggil saat player mati
-    public void GameOver()
+    public void PlayerDied()
     {
-        // Menampilkan panel game over
-        // (Anda bisa menggunakan animasi atau fungsi lain untuk menampilkan panel)
-
-        // Menyimpan checkpoint terakhir
-        lastCheckpointPosition = player.GetComponent<PlayerHealth>().GetRespawnPoint();
+        // Menampilkan layar kalah (tampilkan UI kalah di sini jika diperlukan)
+        UIManager.Instance.ShowLoseMenu();
     }
 
-    // Fungsi untuk retry dari checkpoint terakhir
-    public void Retry()
+    public void ContinueGame()
     {
-        // Memuat ulang level dengan menggunakan checkpoint terakhir
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-
-        // Atur posisi player ke checkpoint terakhir
-        player.transform.position = lastCheckpointPosition;
+        // Pemanggilan dari tombol "Continue" di UI kalah
+        PlayerHealth playerHealth = FindObjectOfType<PlayerHealth>();
+        if (playerHealth != null)
+        {
+            playerHealth.RespawnPlayer();
+        }
     }
 
-    // Fungsi untuk kembali ke main menu
-    public void ExitToMainMenu()
+    public void ReturnToMainMenu()
     {
-        // Memuat main menu
-        SceneManager.LoadScene("MainMenuScene");
+        // Pemanggilan dari tombol "Return to Main Menu" di UI kalah
+        SceneManager.LoadScene(0); // Ubah angka sesuai dengan indeks scene menu utama
     }
+
+    // ... (method lainnya)
 }

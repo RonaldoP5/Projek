@@ -49,11 +49,13 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    private void RespawnPlayer()
+    public void RespawnPlayer()
     {
         transform.position = respawnPoint;
         currentHealth = maxHealth;
         healthBar.SetHealth(currentHealth);
+
+        GameManager.Instance.PlayerDied();
     }
 
     public void SetRespawnPoint(Vector3 checkpointPosition)
