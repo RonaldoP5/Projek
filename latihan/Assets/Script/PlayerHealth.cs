@@ -25,6 +25,10 @@ public class PlayerHealth : MonoBehaviour
 
     private Bergerak bergerak;
 
+    public GameManager gameManager;
+
+    private bool isDead;
+
     private void Start()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
@@ -43,9 +47,22 @@ public class PlayerHealth : MonoBehaviour
             bergerak.jalan = originalMoveSpeed;
         }
 
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && !isDead)
+            if (isSlowed && Time.time >= slowEndTime)
+            {
+                isSlowed = false;
+                bergerak.jalan = originalMoveSpeed;
+            }
+
+        if (currentHealth <= 0 && !isDead)
         {
+            isDead = true;
             RespawnPlayer();
+            gameManager.gameOver();
+        }
+        else if (currentHealth > 0 && isDead)
+        {
+            isDead = false; // Setelah respawn, atur isDead kembali ke false
         }
     }
 
@@ -54,8 +71,6 @@ public class PlayerHealth : MonoBehaviour
         transform.position = respawnPoint;
         currentHealth = maxHealth;
         healthBar.SetHealth(currentHealth);
-
-        GameManager.Instance.PlayerDied();
     }
 
     public void SetRespawnPoint(Vector3 checkpointPosition)

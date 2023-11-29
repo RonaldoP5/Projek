@@ -2935,6 +2935,7 @@ MonoBehaviour:
   slowFactor: 0.5
   iFramesDuration: 0.5
   numberOfFlashes: 3
+  gameManager: {fileID: 1582556694}
 --- !u!95 &573636110
 Animator:
   serializedVersion: 5
@@ -5298,7 +5299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2.23
-  lineOfSight: 3.97
+  lineOfSight: 5.88
   attackRange: 2.04
   attackCooldown: 1.37
   preAttackDuration: 1
@@ -6064,7 +6065,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de10a68a8ebf74d45b6f78a086c408db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPaused: 0
 --- !u!4 &1281158904
 Transform:
   m_ObjectHideFlags: 0
@@ -7094,6 +7094,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d9b6b9134b42b248aa52e85d2e1b5fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverUI: {fileID: 1650126153}
+  audioManager: {fileID: 152794645}
 --- !u!1001 &1614732344
 PrefabInstance:
   m_ObjectHideFlags: 0
