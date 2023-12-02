@@ -18,10 +18,13 @@ public class PlayerCombatController : MonoBehaviour
 
     private Animator anim;
 
+    private Bergerak bergerakScript;
+
     private void Start()
     {
         anim = GetComponent<Animator>();
         anim.SetBool("canAttack", combatEnabled);
+        bergerakScript = GetComponent<Bergerak>();
     }
 
     private void Update()
@@ -34,7 +37,7 @@ public class PlayerCombatController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (combatEnabled)
+            if (combatEnabled && bergerakScript != null && bergerakScript.injakTanah)
             {
                 //Attempt combat
                 gotInput = true;
@@ -45,7 +48,7 @@ public class PlayerCombatController : MonoBehaviour
 
     private void CheckAttacks()
     {
-        if (gotInput)
+        if (gotInput && bergerakScript != null && bergerakScript.injakTanah)
         {
             // Perform Attack1
             if (!isAttacking)
