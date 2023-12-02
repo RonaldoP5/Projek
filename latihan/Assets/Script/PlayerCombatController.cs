@@ -56,6 +56,7 @@ public class PlayerCombatController : MonoBehaviour
                 anim.SetBool("attack1", true);
                 anim.SetBool("firstAttack", isFirstAttack);
                 anim.SetBool("isAttacking", isAttacking);
+               
 
                 // CheckAttackHitBox will be called when the attack animation connects
                 Invoke("CheckAttackHitBox", 0.3f); // Adjust the delay based on your animation timing
@@ -87,6 +88,11 @@ public class PlayerCombatController : MonoBehaviour
 
             // Instantiate hit particle if needed
         }
+    }
+
+    public bool IsAttacking()
+    {
+        return isAttacking;
     }
 
     private void FinishAttack1()

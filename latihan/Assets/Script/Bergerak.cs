@@ -28,6 +28,8 @@ public class Bergerak : MonoBehaviour
     public float dashCooldown = 3f; // Waktu cooldown antara "dash"
     private float nextDashTime = 0f; // Waktu kapan karakter dapat "dash" lagi
 
+    private PlayerCombatController combatController;
+
 
     void Start()
     {
@@ -36,6 +38,8 @@ public class Bergerak : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         attackPosX = attackPos.localPosition.x;
+
+        combatController = GetComponent<PlayerCombatController>();
     }
 
     private void FixedUpdate()
@@ -94,6 +98,11 @@ public class Bergerak : MonoBehaviour
         {
             spriteRenderer.flipX = false;
             attackPos.localPosition = new Vector2(attackPosX, attackPos.localPosition.y);
+        }
+
+        if (combatController != null && combatController.IsAttacking())
+        {
+            rb.velocity = Vector2.zero;
         }
     }
 
