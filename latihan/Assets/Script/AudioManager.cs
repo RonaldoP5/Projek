@@ -40,7 +40,7 @@ public class AudioManager : MonoBehaviour
     }
     public void StopAllAudio()
     {
-        musicSource.Stop();
+        musicSource.volume = 0.03f;
         SFXSource.Stop();
         playerSFX.Stop();
     }

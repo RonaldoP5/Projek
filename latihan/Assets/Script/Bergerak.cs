@@ -88,16 +88,19 @@ public class Bergerak : MonoBehaviour
         }
 
         // Membalikkan sprite jika bergerak ke kiri
-        if (gerak < 0)
+        if (!(combatController != null && combatController.IsAttacking()))
         {
-            spriteRenderer.flipX = true;
-            attackPos.localPosition = new Vector2(attackPosX * -1, attackPos.localPosition.y);
-        }
-        // Mengembalikan sprite ke arah semula jika bergerak ke kanan
-        else if (gerak > 0)
-        {
-            spriteRenderer.flipX = false;
-            attackPos.localPosition = new Vector2(attackPosX, attackPos.localPosition.y);
+            if (gerak < 0)
+            {
+                spriteRenderer.flipX = true;
+                attackPos.localPosition = new Vector2(attackPosX * -1, attackPos.localPosition.y);
+            }
+            // Mengembalikan sprite ke arah semula jika bergerak ke kanan
+            else if (gerak > 0)
+            {
+                spriteRenderer.flipX = false;
+                attackPos.localPosition = new Vector2(attackPosX, attackPos.localPosition.y);
+            }
         }
 
         if (combatController != null && combatController.IsAttacking())
