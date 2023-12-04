@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class EnemyFollowPlayer : MonoBehaviour
 {
+    AudioManager audioManager;
     public float speed;
     public float lineOfSight;
     public float attackRange;
@@ -12,6 +13,7 @@ public class EnemyFollowPlayer : MonoBehaviour
     private Transform player;
     private bool isAttacking = false;
     private float timeSinceLastAttack = 0.0f;
+    private bool isPlayerInLineOfSight = false;
 
     // Variabel untuk ukuran dan damage enemy
     private float originalSize;
@@ -28,6 +30,8 @@ public class EnemyFollowPlayer : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         originalSize = transform.localScale.x;
+
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     // Update is called once per frame
@@ -39,6 +43,12 @@ public class EnemyFollowPlayer : MonoBehaviour
 
         if (distanceFromPlayer < lineOfSight)
         {
+            if (!isPlayerInLineOfSight)
+            {
+                isPlayerInLineOfSight = true;
+                audioManager.BgmCombat();
+            }
+
             if (distanceFromPlayer <= attackRange)
             {
                 if (!isAttacking && timeSinceLastAttack >= attackCooldown)
@@ -52,6 +62,17 @@ public class EnemyFollowPlayer : MonoBehaviour
                 StopCoroutine(PreAttack());
                 transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
             }
+        }
+        else
+        {
+            if (isPlayerInLineOfSight)
+            {
+                isPlayerInLineOfSight = false;
+                audioManager.StopBgmCombat();
+            }
+
+            timeSinceLastAttack = 0.0f;
+            StopCoroutine(PreAttack());
         }
 
         timeSinceLastAttack += Time.deltaTime;

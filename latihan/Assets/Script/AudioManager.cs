@@ -11,6 +11,8 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] AudioSource playerSFX;
 
+    [SerializeField] AudioSource BGMCombat;
+
     [Header("--- Audio Clip ")]
 
     public AudioClip background;
@@ -37,6 +39,16 @@ public class AudioManager : MonoBehaviour
     public void PlayerAudio()
     {
         playerSFX.Play();
+    }
+
+    public void BgmCombat()
+    {
+        BGMCombat.Play();
+    }
+
+    public void StopBgmCombat()
+    {
+        BGMCombat.Stop();
     }
     public void StopAllAudio()
     {

@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
+    AudioManager audioManager;
     public float maxHealth = 100f;
     public float currentHealth;
     [Header("iFrames")]
     [SerializeField] private float iFramesDuration;
     [SerializeField] private int numberOfFlashes;
     private SpriteRenderer spriteRend;
+
+    private bool isPlayingAudio = false;
+
 
     // Properti tambahan untuk mendapatkan current health
     public float CurrentHealth
@@ -20,12 +24,15 @@ public class EnemyHealth : MonoBehaviour
     private void Start()
     {
         currentHealth = maxHealth;
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        spriteRend = GetComponent<SpriteRenderer>();
     }
 
     public void TakeDamage(float damageAmount)
     {
         currentHealth -= damageAmount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        StartCoroutine(Invulnerability());
 
         if (currentHealth <= 0)
         {
@@ -52,5 +59,11 @@ public class EnemyHealth : MonoBehaviour
     {
         // Tambahkan logika kematian enemy di sini, misalnya memanggil animasi atau menghancurkan GameObject
         Destroy(gameObject);
+
+        if (!isPlayingAudio)
+        {
+            isPlayingAudio = false;
+            audioManager.StopBgmCombat();
+        }
     }
 }
