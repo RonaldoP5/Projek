@@ -3,7 +3,9 @@ using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {
-     AudioManager audioManager;
+    private Animator animator;
+
+    AudioManager audioManager;
     public float maxHealth = 100f;
     private float currentHealth;
     private Vector3 respawnPoint;
@@ -37,6 +39,7 @@ public class PlayerHealth : MonoBehaviour
         bergerak = GetComponent<Bergerak>();
         originalMoveSpeed = bergerak.jalan;
         spriteRend = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -56,6 +59,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (currentHealth <= 0 && !isDead)
         {
+           
             isDead = true;
             RespawnPlayer();
             gameManager.gameOver();
@@ -68,6 +72,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void RespawnPlayer()
     {
+        animator.SetTrigger("isDead");
         transform.position = respawnPoint;
         currentHealth = maxHealth;
         healthBar.SetHealth(currentHealth);

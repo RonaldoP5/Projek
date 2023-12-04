@@ -5,7 +5,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("-- Audio Source ")]
 
-    [SerializeField] AudioSource musicSource;
+    [SerializeField] public AudioSource musicSource;
 
     [SerializeField] AudioSource SFXSource;
 
@@ -23,7 +23,10 @@ public class AudioManager : MonoBehaviour
 
     public AudioClip potion;
 
-
+    public void SetBackgroundVolume(float volume)
+    {
+        musicSource.volume = volume;
+    }
     private void Start()
     {
 
@@ -52,15 +55,21 @@ public class AudioManager : MonoBehaviour
     }
     public void StopAllAudio()
     {
-        musicSource.volume = 0.03f;
+        musicSource.Stop();
         SFXSource.Stop();
         playerSFX.Stop();
+        BGMCombat.Stop();
     }
     public void PlayAllAudio ()
     {
         musicSource.Play();
         SFXSource.Play();
         playerSFX.Play();
+    }
+
+    public void PlayerStopSfx()
+    {
+        playerSFX.Stop();
     }
 
 }
