@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
         {
             playerHealth.RespawnPlayer();
             audioManager.PlayAllAudio();
+            audioManager.PlayMainBGM();
             gameOverUI.SetActive(false);
             Time.timeScale = 1f;
         }
