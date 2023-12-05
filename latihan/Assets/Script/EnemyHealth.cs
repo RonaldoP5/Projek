@@ -69,6 +69,7 @@ public class EnemyHealth : MonoBehaviour
         {
             isPlayingAudio = false;
             audioManager.StopBgmCombat();
+            audioManager.PlayMainBGM();
         }
     }
 }

@@ -47,6 +47,7 @@ public class EnemyFollowPlayer : MonoBehaviour
             {
                 isPlayerInLineOfSight = true;
                 audioManager.BgmCombat();
+                audioManager.StopMainBGM();
             }
 
             if (distanceFromPlayer <= attackRange)
@@ -69,6 +70,7 @@ public class EnemyFollowPlayer : MonoBehaviour
             {
                 isPlayerInLineOfSight = false;
                 audioManager.StopBgmCombat();
+                audioManager.PlayMainBGM();
             }
 
             timeSinceLastAttack = 0.0f;

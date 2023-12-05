@@ -51,7 +51,7 @@ public class AudioManager : MonoBehaviour
 
     public void StopBgmCombat()
     {
-        BGMCombat.Stop();
+        BGMCombat.Pause();
     }
     public void StopAllAudio()
     {
@@ -62,11 +62,19 @@ public class AudioManager : MonoBehaviour
     }
     public void PlayAllAudio ()
     {
-        musicSource.Play();
+        //musicSource.Play();
         SFXSource.Play();
         playerSFX.Play();
     }
 
+    public void PlayMainBGM()
+    {
+        musicSource.Play();
+    }
+    public void StopMainBGM()
+    {
+        musicSource.Pause();
+    }
     public void PlayerStopSfx()
     {
         playerSFX.Stop();
