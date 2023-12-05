@@ -14,6 +14,8 @@ public class EnemyHealth : MonoBehaviour
 
     private bool isPlayingAudio = false;
 
+    private HealthBarEnemy _healthBar;
+
 
     // Properti tambahan untuk mendapatkan current health
     public float CurrentHealth
@@ -26,6 +28,7 @@ public class EnemyHealth : MonoBehaviour
         currentHealth = maxHealth;
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         spriteRend = GetComponent<SpriteRenderer>();
+        _healthBar = GetComponentInChildren<HealthBarEnemy>();
     }
 
     public void TakeDamage(float damageAmount)
@@ -33,6 +36,8 @@ public class EnemyHealth : MonoBehaviour
         currentHealth -= damageAmount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         StartCoroutine(Invulnerability());
+
+        _healthBar.UpdateHealthBar(maxHealth, currentHealth);
 
         if (currentHealth <= 0)
         {

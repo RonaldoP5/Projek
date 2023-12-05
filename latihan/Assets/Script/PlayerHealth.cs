@@ -51,24 +51,30 @@ public class PlayerHealth : MonoBehaviour
         }
 
         if (currentHealth <= 0 && !isDead)
-            if (isSlowed && Time.time >= slowEndTime)
-            {
-                isSlowed = false;
-                bergerak.jalan = originalMoveSpeed;
-            }
-
-        if (currentHealth <= 0 && !isDead)
         {
-           
+            // Trigger animasi kematian
             isDead = true;
-            RespawnPlayer();
-            gameManager.gameOver();
+            animator.SetTrigger("isDead");
+
+            // Tunggu sebentar sebelum memanggil game over
+            StartCoroutine(GameOverAfterDeathAnimation());
         }
-        else if (currentHealth > 0 && isDead)
+
+        if (currentHealth > 0 && isDead)
         {
             isDead = false; // Setelah respawn, atur isDead kembali ke false
         }
     }
+
+    IEnumerator GameOverAfterDeathAnimation()
+    {
+        // Tunggu beberapa detik sebelum memanggil game over
+        yield return new WaitForSeconds(1);
+
+        // Munculkan game over setelah animasi kematian selesai
+        gameManager.gameOver();
+    }
+
 
     public void RespawnPlayer()
     {
