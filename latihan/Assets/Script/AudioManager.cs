@@ -7,6 +7,8 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] public AudioSource musicSource;
 
+    [SerializeField] public AudioSource ButtonClick;
+
     [SerializeField] AudioSource SFXSource;
 
     [SerializeField] AudioSource playerSFX;
