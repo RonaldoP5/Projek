@@ -859,10 +859,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicSource: {fileID: 1745237105}
+  ButtonClick: {fileID: 0}
   SFXSource: {fileID: 1232232035}
   playerSFX: {fileID: 1945671381}
   BGMCombat: {fileID: 1927775095}
-  background: {fileID: 8300000, guid: 979dc445ca3e835458ecf833bbd426ed, type: 3}
+  background: {fileID: 8300000, guid: e4ebbe6b33cd9ee4ea42c4a80ad3171a, type: 3}
   death: {fileID: 0}
   checkpoint: {fileID: 0}
   potion: {fileID: 8300000, guid: ad3182f81954976409822beaa9b9d638, type: 3}
@@ -7508,7 +7509,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -8742498511148431334, guid: a640dcbd4995c0c47a34c03a0cca54d6, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.03
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
