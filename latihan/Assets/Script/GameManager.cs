@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public GameObject gameOverUI;
+    public GameObject healthBar;
 
     public AudioManager audioManager;
     private void Awake()
@@ -23,6 +24,7 @@ public class GameManager : MonoBehaviour
 
     public void gameOver()
     {
+        healthBar.SetActive(false);
         audioManager.StopAllAudio();
         gameOverUI.SetActive(true);
         Time.timeScale = 0f; // Menghentikan waktu saat game over
@@ -44,6 +46,7 @@ public class GameManager : MonoBehaviour
             audioManager.PlayAllAudio();
             audioManager.PlayMainBGM();
             gameOverUI.SetActive(false);
+            healthBar.SetActive(true);
             Time.timeScale = 1f;
         }
 

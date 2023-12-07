@@ -4689,6 +4689,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioManager: {fileID: 152794645}
   pauseMenu: {fileID: 331615202}
+  healthBar: {fileID: 415885438}
   isPaused: 0
 --- !u!1 &893513757
 GameObject:
@@ -7059,6 +7060,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverUI: {fileID: 1650126153}
+  healthBar: {fileID: 415885438}
   audioManager: {fileID: 152794645}
 --- !u!1001 &1614732344
 PrefabInstance:

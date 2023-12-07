@@ -7,6 +7,8 @@ public class PauseMenu : MonoBehaviour
 {
     public AudioManager audioManager;
     public GameObject pauseMenu;
+
+    public GameObject healthBar;
     public bool isPaused;
 
     void Start()
@@ -35,12 +37,14 @@ public class PauseMenu : MonoBehaviour
         audioManager.SetBackgroundVolume(0.2f);
         audioManager.PlayerStopSfx();
         pauseMenu.SetActive(true);
+        healthBar.SetActive(false);
         Time.timeScale = 0f;
         isPaused = true;
     }
 
     public void Continue()
     {
+        healthBar.SetActive(true);
         audioManager.PlayAllAudio();
         pauseMenu.SetActive(false); 
         Time.timeScale = 1f;
