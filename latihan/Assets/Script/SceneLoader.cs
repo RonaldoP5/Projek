@@ -8,8 +8,8 @@ public class SceneLoader : MonoBehaviour
     public GameObject loadingScreen;
     public Slider loadingBar;
 
-    // Waktu yang diinginkan untuk loading bar naik dari 0 hingga 1
     public float duration = 1f;
+    public float fadeInDuration = 0.2f;
 
     public void LoadScene(int level1index)
     {
@@ -18,32 +18,29 @@ public class SceneLoader : MonoBehaviour
 
     IEnumerator ShowLoadingScreenAndLoadScene(int level1index)
     {
-        // Tunda waktu sebelum menampilkan loading screen (contoh: 2 detik)
-        yield return new WaitForSeconds(0.1f);
-
         loadingScreen.SetActive(true);
+
+        // Animasi loading bar dari 0 ke 1 selama fadeInDuration
+        float startTime = Time.time;
+        float endTime = startTime + fadeInDuration;
+
+        while (Time.time < endTime)
+        {
+            float elapsed = Time.time - startTime;
+            float t = Mathf.Clamp01(elapsed / fadeInDuration);
+            loadingBar.value = t;
+            yield return null;
+        }
+
+        // Menunggu sebentar sebelum memulai loading scene
+        yield return new WaitForSeconds(0.2f);
 
         AsyncOperation operation = SceneManager.LoadSceneAsync(level1index);
 
-        float startTime = Time.time;
-
         while (!operation.isDone)
         {
-            // Menghitung berapa lama loading sudah berlangsung
-            float elapsed = Time.time - startTime;
-
-            // Menghitung target value berdasarkan durasi waktu yang diinginkan
-            float t = Mathf.Clamp01(elapsed / duration);
-
-            // Menggunakan nilai waktu yang dihitung sebagai faktor langsung
-            loadingBar.value = t;
-
-            // Mengecek apakah loading sudah selesai
-            if (elapsed >= duration)
-            {
-                break;
-            }
-
+            float progress = Mathf.Clamp01(operation.progress / 0.9f); // Normalisasi nilai progress
+            loadingBar.value = progress;
             yield return null;
         }
     }
