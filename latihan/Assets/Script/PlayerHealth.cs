@@ -3,6 +3,7 @@ using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {
+    
     private Animator animator;
 
     AudioManager audioManager;
@@ -25,11 +26,13 @@ public class PlayerHealth : MonoBehaviour
 
     private bool isTrap = false;
 
-    private Bergerak bergerak;
+    public Bergerak bergerak;
+    public EnemyFollowPlayer enemy;
 
     public GameManager gameManager;
 
     private bool isDead;
+
 
     private void Start()
     {
@@ -55,9 +58,12 @@ public class PlayerHealth : MonoBehaviour
             // Trigger animasi kematian
             isDead = true;
             animator.SetTrigger("isDead");
+            enemy.StopAttackPlayer();
 
             // Tunggu sebentar sebelum memanggil game over
             StartCoroutine(GameOverAfterDeathAnimation());
+
+            bergerak.enabled = false;
         }
 
         if (currentHealth > 0 && isDead)
@@ -70,7 +76,9 @@ public class PlayerHealth : MonoBehaviour
     {
         // Tunggu beberapa detik sebelum memanggil game over
         yield return new WaitForSeconds(1);
+        
 
+        
         // Munculkan game over setelah animasi kematian selesai
         gameManager.gameOver();
     }
@@ -78,6 +86,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void RespawnPlayer()
     {
+        bergerak.enabled = true;
         animator.SetTrigger("isDead");
         transform.position = respawnPoint;
         currentHealth = maxHealth;

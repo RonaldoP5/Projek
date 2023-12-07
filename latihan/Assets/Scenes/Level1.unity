@@ -2715,6 +2715,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackPos: {fileID: 1438049129}
+  rb: {fileID: 573636106}
   jalan: 5
   lompatan: 12
   cekRadius: 0.5
@@ -2885,6 +2886,8 @@ MonoBehaviour:
   slowFactor: 0.5
   iFramesDuration: 0.5
   numberOfFlashes: 3
+  bergerak: {fileID: 0}
+  enemy: {fileID: 1174923397}
   gameManager: {fileID: 1582556694}
 --- !u!95 &573636110
 Animator:

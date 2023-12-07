@@ -66,15 +66,7 @@ public class EnemyFollowPlayer : MonoBehaviour
         }
         else
         {
-            if (isPlayerInLineOfSight)
-            {
-                isPlayerInLineOfSight = false;
-                audioManager.StopBgmCombat();
-                audioManager.PlayMainBGM();
-            }
-
-            timeSinceLastAttack = 0.0f;
-            StopCoroutine(PreAttack());
+            StopAttackPlayer();
         }
 
         timeSinceLastAttack += Time.deltaTime;
@@ -105,6 +97,18 @@ public class EnemyFollowPlayer : MonoBehaviour
         yield return new WaitForSeconds(attackCooldown - preAttackDuration);
         isAttacking = false;
     }
+    public void StopAttackPlayer()
+    {
+        if (isPlayerInLineOfSight)
+        {
+            isPlayerInLineOfSight = false;
+            audioManager.StopBgmCombat();
+            audioManager.PlayMainBGM();
+        }
+
+        timeSinceLastAttack = 0.0f;
+        StopCoroutine(PreAttack());
+    }
 
     void AttackPlayer()
     {
@@ -120,5 +124,6 @@ public class EnemyFollowPlayer : MonoBehaviour
 
         // Menyerang pemain dengan damage yang baru
         player.GetComponent<PlayerHealth>().TakeDamage(currentDamage, false); // Ubah parameter kedua menjadi false
+        
     }
 }

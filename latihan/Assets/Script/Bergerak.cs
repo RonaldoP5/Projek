@@ -9,7 +9,7 @@ public class Bergerak : MonoBehaviour
     private bool isWalking;
     private int facingDirection = 1;
 
-    Rigidbody2D rb;
+    public Rigidbody2D rb;
     private Animator anim;
 
     SpriteRenderer spriteRenderer;
