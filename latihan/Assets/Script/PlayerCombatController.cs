@@ -20,8 +20,10 @@ public class PlayerCombatController : MonoBehaviour
 
     private Bergerak bergerakScript;
 
+    AudioManager audioManager;
     private void Start()
     {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         anim = GetComponent<Animator>();
         anim.SetBool("canAttack", combatEnabled);
         bergerakScript = GetComponent<Bergerak>();
@@ -53,6 +55,7 @@ public class PlayerCombatController : MonoBehaviour
             // Perform Attack1
             if (!isAttacking)
             {
+                audioManager.AttackSound();
                 gotInput = false;
                 isAttacking = true;
                 isFirstAttack = !isFirstAttack;
@@ -100,6 +103,7 @@ public class PlayerCombatController : MonoBehaviour
 
     private void FinishAttack1()
     {
+        audioManager.AttackStopSFX();
         isAttacking = false;
         anim.SetBool("isAttacking", isAttacking);
         anim.SetBool("attack1", false);

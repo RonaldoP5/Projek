@@ -17,6 +17,8 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] AudioSource JumpSFX;
 
+    [SerializeField] AudioSource AttackSFX;
+
     [Header("--- Audio Clip ")]
 
     public AudioClip background;
@@ -63,6 +65,7 @@ public class AudioManager : MonoBehaviour
         SFXSource.Stop();
         playerSFX.Stop();
         BGMCombat.Stop();
+        AttackSFX.Stop();
     }
     public void PlayAllAudio ()
     {
@@ -88,5 +91,15 @@ public class AudioManager : MonoBehaviour
     public void JumpSfx()
     {
         JumpSFX.Play();
+    }
+
+    public void AttackSound()
+    {
+        AttackSFX.Play();
+    }
+
+    public void AttackStopSFX()
+    {
+        AttackSFX.Stop();
     }
 }

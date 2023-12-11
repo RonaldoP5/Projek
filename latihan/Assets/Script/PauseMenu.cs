@@ -40,6 +40,7 @@ public class PauseMenu : MonoBehaviour
         healthBar.SetActive(false);
         Time.timeScale = 0f;
         isPaused = true;
+        audioManager.AttackStopSFX();
     }
 
     public void Continue()

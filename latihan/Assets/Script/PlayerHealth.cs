@@ -59,6 +59,7 @@ public class PlayerHealth : MonoBehaviour
             isDead = true;
             animator.SetTrigger("isDead");
             enemy.StopAttackPlayer();
+            audioManager.PlayerStopSfx();
 
             // Tunggu sebentar sebelum memanggil game over
             StartCoroutine(GameOverAfterDeathAnimation());

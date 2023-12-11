@@ -157,8 +157,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -509, y: 142.5}
-  m_SizeDelta: {x: 1031, y: 665}
+  m_AnchoredPosition: {x: -458, y: 100.25}
+  m_SizeDelta: {x: 1222.698, y: 580.5094}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &147408154
 MonoBehaviour:
@@ -488,11 +488,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 2110243472}
   lines:
-  - halo
-  - halo juga
-  - apa kabar bro
-  - alhamdulillah baik bang
-  textSpeed: 0.3
+  - awdasdawmnhbgdmhasbdmhawbgdjhasbdhawbd
+  - awkdhgaskjgdbajkhwgdajsgd
+  - awdliashfkbawdkghasjydgawhde
+  - awdpaskfliahwdkhasjhdvawjd
+  textSpeed: 0.02
 --- !u!114 &1621759895
 MonoBehaviour:
   m_ObjectHideFlags: 0
