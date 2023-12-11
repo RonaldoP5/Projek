@@ -10,7 +10,6 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject healthBar;
     public bool isPaused;
-
     void Start()
     {
         pauseMenu.SetActive(false);
@@ -31,7 +30,6 @@ public class PauseMenu : MonoBehaviour
             }
         }
     }
-    
     public void Pause()
     {
         audioManager.SetBackgroundVolume(0.2f);

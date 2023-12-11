@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
 
     public void gameOver()
     {
+        audioManager.BGMgameover();
         audioManager.AttackStopSFX();
         healthBar.SetActive(false);
         audioManager.StopAllAudio();

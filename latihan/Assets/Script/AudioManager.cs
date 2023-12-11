@@ -19,6 +19,8 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] AudioSource AttackSFX;
 
+    [SerializeField] AudioSource GameOver;
+
     [Header("--- Audio Clip ")]
 
     public AudioClip background;
@@ -101,5 +103,10 @@ public class AudioManager : MonoBehaviour
     public void AttackStopSFX()
     {
         AttackSFX.Stop();
+    }
+
+    public void BGMgameover()
+    {
+        GameOver.Play();
     }
 }
