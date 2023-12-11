@@ -33,9 +33,12 @@ public class PlayerHealth : MonoBehaviour
 
     private bool isDead;
 
+    private Rigidbody2D playerRb;
 
     private void Start()
     {
+        GameObject player = GameObject.FindWithTag("Player");
+        playerRb = player.GetComponent<Rigidbody2D>();
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
@@ -55,6 +58,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (currentHealth <= 0 && !isDead)
         {
+            playerRb.velocity = Vector2.zero;
             // Trigger animasi kematian
             isDead = true;
             animator.SetTrigger("isDead");
@@ -71,8 +75,9 @@ public class PlayerHealth : MonoBehaviour
         {
             isDead = false; // Setelah respawn, atur isDead kembali ke false
         }
-    }
 
+
+    }
     IEnumerator GameOverAfterDeathAnimation()
     {
         // Tunggu beberapa detik sebelum memanggil game over

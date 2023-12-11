@@ -37,15 +37,24 @@ public class PlayerCombatController : MonoBehaviour
 
     private void CheckCombatInput()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!IsGamePaused())
         {
-            if (combatEnabled && bergerakScript != null && bergerakScript.injakTanah)
+            if (Input.GetMouseButtonDown(0))
             {
-                //Attempt combat
-                gotInput = true;
-                lastInputTime = Time.time;
+                if (combatEnabled && bergerakScript != null && bergerakScript.injakTanah)
+                {
+                    //Attempt combat
+                    gotInput = true;
+                    lastInputTime = Time.time;
+                }
             }
         }
+        
+    }
+
+    private bool IsGamePaused()
+    {
+        return Time.timeScale == 0f; 
     }
 
     private void CheckAttacks()

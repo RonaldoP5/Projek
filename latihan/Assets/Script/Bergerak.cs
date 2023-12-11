@@ -108,7 +108,6 @@ public class Bergerak : MonoBehaviour
             rb.velocity = Vector2.zero;
         }
     }
-
     void Update()
     {
         UpdateAnimations();
@@ -172,7 +171,12 @@ public class Bergerak : MonoBehaviour
         return 0;
     }
     public int GetFacingDirection()
-{
-    return facingDirection;
-}
+    {
+        return facingDirection;
+    }
+
+    public Rigidbody2D GetRigidbody2D()
+    {
+        return rb;
+    }
 }
