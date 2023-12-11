@@ -71,10 +71,10 @@ public class PlayerHealth : MonoBehaviour
             bergerak.enabled = false;
         }
 
-        if (currentHealth > 0 && isDead)
-        {
-            isDead = false; // Setelah respawn, atur isDead kembali ke false
-        }
+        //if (currentHealth > 0 && isDead)
+        //{
+        //    isDead = false; // Setelah respawn, atur isDead kembali ke false
+        //}
 
 
     }
@@ -92,11 +92,22 @@ public class PlayerHealth : MonoBehaviour
 
     public void RespawnPlayer()
     {
-        bergerak.enabled = true;
-        animator.SetTrigger("isDead");
-        transform.position = respawnPoint;
-        currentHealth = maxHealth;
-        healthBar.SetHealth(currentHealth);
+        if (isDead)  // Only respawn if the player is dead
+        {
+            bergerak.enabled = true;
+            animator.Play("Idle");
+            transform.position = respawnPoint;
+            currentHealth = maxHealth;
+            StartCoroutine(RespawnCoroutine());
+            healthBar.SetHealth(currentHealth);
+            isDead = false;  // Reset isDead flag when the player respawns
+        }
+    }
+
+    private IEnumerator RespawnCoroutine()
+    {
+        yield return new WaitForSeconds(1f);  // Sesuaikan waktu berdasarkan durasi animasi respawn Anda
+        animator.Play("Idle");  // Ganti dengan nama animasi idle yang sesuai
     }
 
     public void SetRespawnPoint(Vector3 checkpointPosition)
