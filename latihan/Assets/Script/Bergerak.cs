@@ -115,6 +115,7 @@ public class Bergerak : MonoBehaviour
         // Jika pemain melompat, atur isJumping menjadi true
         if (Input.GetButtonDown("Jump") && injakTanah)
         {
+            audioManager.JumpSfx();
             rb.velocity = new Vector2(rb.velocity.x, lompatan);
         }
 

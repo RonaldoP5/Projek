@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CutScene.unity
     guid: 0bed8860a873ea74dbfa928f1ecebd0f
+  - enabled: 1
+    path: Assets/Scenes/DialogBox.unity
+    guid: 4d66f5e706bd99e428a3a2af590a0b80
   m_configObjects: {}
