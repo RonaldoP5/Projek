@@ -32,7 +32,7 @@ public class PauseMenu : MonoBehaviour
     }
     public void Pause()
     {
-        audioManager.SetBackgroundVolume(0.2f);
+        audioManager.SetBackgroundVolume(0.3f);
         audioManager.PlayerStopSfx();
         pauseMenu.SetActive(true);
         healthBar.SetActive(false);
