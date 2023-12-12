@@ -18,7 +18,7 @@ public class VideoController : MonoBehaviour
         LoadNextScene();
     }
 
-    void LoadNextScene()
+    public void LoadNextScene()
     {
         // Lakukan logika untuk memuat scene berikutnya
         // Contoh: Pindah ke scene dengan nama "GameplayScene"
