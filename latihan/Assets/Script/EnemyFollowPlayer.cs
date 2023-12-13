@@ -14,7 +14,6 @@ public class EnemyFollowPlayer : MonoBehaviour
     private bool isAttacking = false;
     private float timeSinceLastAttack = 0.0f;
     private bool isPlayerInLineOfSight = false;
-
     // Variabel untuk ukuran dan damage enemy
     private float originalSize;
     private float currentDamage = 10f; // Damage awal
