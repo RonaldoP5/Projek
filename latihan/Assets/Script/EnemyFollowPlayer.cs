@@ -24,10 +24,12 @@ public class EnemyFollowPlayer : MonoBehaviour
 
     // Maksimal serangan yang diizinkan
     private int maxAttacks = 3;
+     private PlayerHealth playerHealth;
 
     // Start is called before the first frame update
     void Start()
     {
+        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         originalSize = transform.localScale.x;
 
@@ -68,6 +70,10 @@ public class EnemyFollowPlayer : MonoBehaviour
         {
             StopAttackPlayer();
         }
+        if (playerHealth.GetCurrentHealth() <= 0)
+        {
+            StopAttackPlayer();
+        }
 
         timeSinceLastAttack += Time.deltaTime;
     }
@@ -99,7 +105,7 @@ public class EnemyFollowPlayer : MonoBehaviour
     }
     public void StopAttackPlayer()
     {
-        if (isPlayerInLineOfSight)
+        if (isPlayerInLineOfSight && playerHealth.GetCurrentHealth() > 0)
         {
             isPlayerInLineOfSight = false;
             audioManager.StopBgmCombat();

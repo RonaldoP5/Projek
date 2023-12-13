@@ -27,16 +27,21 @@ public class PlayerHealth : MonoBehaviour
     private bool isTrap = false;
 
     public Bergerak bergerak;
-    public EnemyFollowPlayer enemy;
 
     public GameManager gameManager;
 
     private bool isDead;
 
     private Rigidbody2D playerRb;
+    public EnemyManager enemyManager;
+
+
+
 
     private void Start()
     {
+
+        enemyManager = GameObject.FindObjectOfType<EnemyManager>();
         GameObject player = GameObject.FindWithTag("Player");
         playerRb = player.GetComponent<Rigidbody2D>();
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
@@ -50,19 +55,30 @@ public class PlayerHealth : MonoBehaviour
 
     private void Update()
     {
+        SlowedTrap();
+        PlayerIsDead();
+    }
+    public float GetCurrentHealth()
+    {
+        return currentHealth;
+    }
+    public void SlowedTrap()
+    {
         if (isSlowed && Time.time >= slowEndTime)
         {
             isSlowed = false;
             bergerak.jalan = originalMoveSpeed;
         }
+    }
 
+    public void PlayerIsDead()
+    {
         if (currentHealth <= 0 && !isDead)
         {
             playerRb.velocity = Vector2.zero;
             // Trigger animasi kematian
             isDead = true;
             animator.SetTrigger("isDead");
-            enemy.StopAttackPlayer();
             audioManager.PlayerStopSfx();
 
             // Tunggu sebentar sebelum memanggil game over
@@ -71,12 +87,12 @@ public class PlayerHealth : MonoBehaviour
             bergerak.enabled = false;
         }
 
-        //if (currentHealth > 0 && isDead)
-        //{
-        //    isDead = false; // Setelah respawn, atur isDead kembali ke false
-        //}
+    }
 
-
+    void OnDestroy()
+    {
+        // Panggil metode EnemyDestroyed di EnemyManager saat musuh dihancurkan
+        enemyManager.EnemyDestroyed(gameObject);
     }
     IEnumerator GameOverAfterDeathAnimation()
     {
