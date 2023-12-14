@@ -16,7 +16,7 @@ public class EnemyFollowPlayer : MonoBehaviour
     private bool isPlayerInLineOfSight = false;
     // Variabel untuk ukuran dan damage enemy
     private float originalSize;
-    private float currentDamage = 10f; // Damage awal
+    public float currentDamage = 10f; // Damage awal
     private float sizeIncreaseAmount = 0.1f; // Jumlah peningkatan ukuran setiap kali menyerang
     private float damageIncreaseAmount = 5f; // Jumlah peningkatan damage setiap kali menyerang
     private int attackCount = 0; // Jumlah serangan yang sudah dilakukan

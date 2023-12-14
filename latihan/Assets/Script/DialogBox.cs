@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class DialogBox : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
     public string[] lines;
     public float textSpeed;
-
+    public string nextSceneName;
     private int index;
 
     // Start is called before the first frame update
@@ -60,7 +61,17 @@ public class DialogBox : MonoBehaviour
         }
         else
         {
-            gameObject.SetActive(false);
+            StartCoroutine(TransitionToNextScene());
         }
     }
+
+    IEnumerator TransitionToNextScene()
+    {
+        // Wait for a short delay before transitioning to the next scene
+        yield return new WaitForSeconds(0.2f);
+
+        // Load the next scene
+        SceneManager.LoadScene(1);
+    }
+
 }
