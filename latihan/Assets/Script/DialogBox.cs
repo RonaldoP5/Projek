@@ -11,10 +11,12 @@ public class DialogBox : MonoBehaviour
     public float textSpeed;
     public string nextSceneName;
     private int index;
+    public VideoPlayerController videoPlayerController;
+    
 
     // Start is called before the first frame update
     void Start()
-    {
+    {   
         textComponent.text = string.Empty;
         StartDialogue();
     }
@@ -22,21 +24,10 @@ public class DialogBox : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (textComponent.text == lines[index])
-            {
-                NextLine();
-            }
-            else
-            {
-                StopAllCoroutines();
-                textComponent.text = lines[index];
-            }
-        }
+    
     }
 
-    void StartDialogue()
+    public void StartDialogue()
     {
         index = 0;
         StartCoroutine(TypeLine());
@@ -71,7 +62,19 @@ public class DialogBox : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
 
         // Load the next scene
-        SceneManager.LoadScene(1);
+        videoPlayerController.PlayNext();
     }
 
+    public void NextDialogue()
+    {
+        if (textComponent.text == lines[index])
+        {
+            NextLine();
+        }
+        else
+        {
+            StopAllCoroutines();
+            textComponent.text = lines[index];
+        }
+    }
 }
