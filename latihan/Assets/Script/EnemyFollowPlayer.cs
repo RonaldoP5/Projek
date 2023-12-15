@@ -22,8 +22,11 @@ public class EnemyFollowPlayer : MonoBehaviour
     private int maxAttacks = 3;
     private PlayerHealth playerHealth;
 
+    private Animator animator;
     void Start()
     {
+        Debug.Log("Enemy Start");
+        animator = GetComponent<Animator>();
         playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         originalSize = transform.localScale.x;
@@ -88,11 +91,16 @@ public class EnemyFollowPlayer : MonoBehaviour
 
     IEnumerator PreAttack()
     {
+        Debug.Log("PreAttack");
         isAttacking = true;
 
         yield return new WaitForSeconds(preAttackDuration);
+        animator.SetTrigger("IsAttackingEnemy");
+
 
         AttackPlayer();
+
+        //animator.SetTrigger("IdleEnemy");
 
         yield return new WaitForSeconds(attackCooldown - preAttackDuration);
         isAttacking = false;
@@ -100,13 +108,14 @@ public class EnemyFollowPlayer : MonoBehaviour
 
     public void StopAttackPlayer()
     {
+        Debug.Log("StopAttackPlayer() called");
         if (isPlayerInLineOfSight && playerHealth.GetCurrentHealth() > 0)
         {
             isPlayerInLineOfSight = false;
             audioManager.StopBgmCombat();
             audioManager.PlayMainBGM();
         }
-
+        animator.SetTrigger("IdleEnemy");
         timeSinceLastAttack = 0.0f;
         StopCoroutine(PreAttack());
     }

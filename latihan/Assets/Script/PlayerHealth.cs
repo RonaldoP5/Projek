@@ -35,9 +35,6 @@ public class PlayerHealth : MonoBehaviour
     private Rigidbody2D playerRb;
     public EnemyManager enemyManager;
 
-
-
-
     private void Start()
     {
 
