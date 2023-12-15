@@ -162,6 +162,8 @@ public class PlayerHealth : MonoBehaviour
     {
         if (other.CompareTag("ObstacleTrap"))
         {
+            audioManager.PlaySFX(audioManager.trap);
+            audioManager.PlaySFX(audioManager.trap2);
             isTrap = true;
             TakeDamage(10f, isTrap);
             Destroy(other.gameObject);

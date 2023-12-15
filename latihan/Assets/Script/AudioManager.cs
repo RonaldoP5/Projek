@@ -25,7 +25,9 @@ public class AudioManager : MonoBehaviour
 
     public AudioClip background;
 
-    public AudioClip death;
+    public AudioClip trap;
+
+    public AudioClip trap2;
 
     public AudioClip checkpoint;
 
