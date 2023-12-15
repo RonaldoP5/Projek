@@ -43,6 +43,7 @@ public class PlayerCombatController : MonoBehaviour
             {
                 if (combatEnabled && bergerakScript != null && bergerakScript.injakTanah)
                 {
+                    GetAttackDamage();
                     //Attempt combat
                     gotInput = true;
                     lastInputTime = Time.time;
@@ -121,5 +122,11 @@ public class PlayerCombatController : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(attack1HitBoxPos.position, attack1Radius);
+    }
+
+    public float GetAttackDamage()
+    {
+        // Replace this with the actual method or property that returns the attack damage of the player
+        return attack1Damage; // or whatever variable holds the attack damage value
     }
 }

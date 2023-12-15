@@ -14,28 +14,22 @@ public class EnemyFollowPlayer : MonoBehaviour
     private bool isAttacking = false;
     private float timeSinceLastAttack = 0.0f;
     private bool isPlayerInLineOfSight = false;
-    // Variabel untuk ukuran dan damage enemy
     private float originalSize;
-    public float currentDamage = 10f; // Damage awal
-    private float sizeIncreaseAmount = 0.1f; // Jumlah peningkatan ukuran setiap kali menyerang
-    private float damageIncreaseAmount = 5f; // Jumlah peningkatan damage setiap kali menyerang
-    private int attackCount = 0; // Jumlah serangan yang sudah dilakukan
-
-    // Maksimal serangan yang diizinkan
+    public float currentDamage = 10f;
+    private float sizeIncreaseAmount = 0.1f;
+    private float damageIncreaseAmount = 5f;
+    private int attackCount = 0;
     private int maxAttacks = 3;
-     private PlayerHealth playerHealth;
+    private PlayerHealth playerHealth;
 
-    // Start is called before the first frame update
     void Start()
     {
         playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         originalSize = transform.localScale.x;
-
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         Flip();
@@ -69,6 +63,7 @@ public class EnemyFollowPlayer : MonoBehaviour
         {
             StopAttackPlayer();
         }
+
         if (playerHealth.GetCurrentHealth() <= 0)
         {
             StopAttackPlayer();
@@ -102,6 +97,7 @@ public class EnemyFollowPlayer : MonoBehaviour
         yield return new WaitForSeconds(attackCooldown - preAttackDuration);
         isAttacking = false;
     }
+
     public void StopAttackPlayer()
     {
         if (isPlayerInLineOfSight && playerHealth.GetCurrentHealth() > 0)
@@ -117,18 +113,14 @@ public class EnemyFollowPlayer : MonoBehaviour
 
     void AttackPlayer()
     {
-        // Menambahkan damage dan ukuran setiap kali menyerang
         if (attackCount < maxAttacks)
         {
             currentDamage += damageIncreaseAmount;
             float newSize = transform.localScale.x + sizeIncreaseAmount;
             transform.localScale = new Vector3(newSize, newSize, 1f);
-
             attackCount++;
         }
 
-        // Menyerang pemain dengan damage yang baru
-        player.GetComponent<PlayerHealth>().TakeDamage(currentDamage, false); // Ubah parameter kedua menjadi false
-        
+        player.GetComponent<PlayerHealth>().TakeDamage(currentDamage, false);
     }
 }
