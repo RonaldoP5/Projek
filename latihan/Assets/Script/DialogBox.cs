@@ -64,12 +64,45 @@ public class DialogBox : MonoBehaviour
         // Load the next scene
         videoPlayerController.PlayNext();
     }
-
     public void NextDialogue()
     {
         if (textComponent.text == lines[index])
         {
             NextLine();
+        }
+        else
+        {
+            StopAllCoroutines();
+            textComponent.text = lines[index];
+        }
+    }
+    //----------------------------------------
+        void NextLineToMainScene()
+    {
+        if (index < lines.Length - 1)
+        {
+            index++;
+            textComponent.text = string.Empty;
+            StartCoroutine(TypeLine());
+        }
+        else
+        {
+            StartCoroutine(TransitionToMainScene());
+        }
+    }
+        IEnumerator TransitionToMainScene()
+    {
+        // Wait for a short delay before transitioning to the next scene
+        yield return new WaitForSeconds(0.2f);
+
+        // Load the next scene
+        videoPlayerController.LoadNextScene();
+    }
+    public void NextDialogueToMainScene()
+    {
+        if (textComponent.text == lines[index])
+        {
+            NextLineToMainScene();
         }
         else
         {

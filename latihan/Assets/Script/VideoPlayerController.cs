@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
+using UnityEngine.SceneManagement;
 
 public class VideoPlayerController : MonoBehaviour
 {
@@ -31,6 +32,10 @@ public class VideoPlayerController : MonoBehaviour
         m_VideoPlayer.Stop();
         nextVideoPlayer.Play();
         videoPlayerCanvas.SetActive(false);
+    }
+    public void LoadNextScene()
+    {
+        SceneManager.LoadScene(1);
     }
 
     // Fungsi untuk menonaktifkan event OnMovieFinished

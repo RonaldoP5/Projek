@@ -9,7 +9,7 @@ public class VideoController : MonoBehaviour
     void Start()
     {
         // Menambahkan callback ketika video selesai
-        videoPlayer.loopPointReached += EndReached;
+      //  videoPlayer.loopPointReached += EndReached;
     }
 
     void EndReached(VideoPlayer vp)
