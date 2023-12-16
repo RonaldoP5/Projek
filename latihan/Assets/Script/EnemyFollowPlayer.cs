@@ -19,7 +19,7 @@ public class EnemyFollowPlayer : MonoBehaviour
     private float sizeIncreaseAmount = 0.1f;
     private float damageIncreaseAmount = 5f;
     private int attackCount = 0;
-    private int maxAttacks = 3;
+    private int maxAttacks = 2;
     private PlayerHealth playerHealth;
 
     private Animator animator;

@@ -8,7 +8,7 @@ public class PlayerHealth : MonoBehaviour
 
     AudioManager audioManager;
     public float maxHealth = 100f;
-    private float currentHealth;
+    public float currentHealth;
     private Vector3 respawnPoint;
 
     [SerializeField] private HealthBarUI healthBar;

@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class EnemyBulletScript : MonoBehaviour
 {
-    public GameObject player;
+    private GameObject player;
     private Rigidbody2D rb;
     public float force;
+    private float timer;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,31 @@ public class EnemyBulletScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        timer += Time.deltaTime;
+
+        if(timer > 3)
+        {
+            Destroy(gameObject);
+        }
+
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Collision with player");
+
+            // Periksa apakah objek pemain memiliki komponen PlayerHealth
+            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+
+            // Jika ditemukan, kurangi kesehatan pemain
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(10f, false); // Sesuaikan argumen kedua sesuai kebutuhan
+            }
+
+            Destroy(gameObject);
+        }
     }
 }
