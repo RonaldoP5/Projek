@@ -95,12 +95,17 @@ public class PlayerCombatController : MonoBehaviour
 
             // Cari komponen EnemyHealth pada objek yang terkena serangan
             EnemyHealth enemyHealth = collider.transform.GetComponent<EnemyHealth>();
-
+            BossController enemyHealthboss = collider.transform.GetComponent<BossController>();
             // Jika ditemukan, kirim pesan "TakeDamage"
             if (enemyHealth != null)
             {
                 enemyHealth.TakeDamage(attack1Damage);
             }
+            if (enemyHealthboss != null)
+            {
+                enemyHealthboss.TakeDamage(attack1Damage);
+            }
+            
 
             // Instantiate hit particle if needed
         }

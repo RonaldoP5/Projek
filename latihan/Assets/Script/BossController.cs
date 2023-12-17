@@ -1,9 +1,11 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BossController : MonoBehaviour
 {
     public float bossHealth = 100f;
+    public float currentHealth;
     public GameObject enemyPrefab;
     public Transform summonPoint;
     public int maxSummonedEnemies = 5;
@@ -12,13 +14,44 @@ public class BossController : MonoBehaviour
     private bool isBossDead = false;
     private bool hasSummoned = false;
 
+    [SerializeField] private float iFramesDuration;
+    [SerializeField] private int numberOfFlashes;
+    private SpriteRenderer spriteRend;
+    private HealthBarEnemy _healthBar;
+
+    void Start()
+    {
+        currentHealth = bossHealth;
+        spriteRend = GetComponent<SpriteRenderer>();
+        _healthBar = GetComponentInChildren<HealthBarEnemy>();
+    }
+
     void Update()
     {
         if (!isBossDead)
         {
             CheckPlayerInLineOfSight();
-            CheckPlayerAttack();
         }
+    }
+
+    public float CurrentHealth
+    {
+        get { return currentHealth; }
+    }
+
+    private IEnumerator Invulnerability()
+    {
+        Physics2D.IgnoreLayerCollision(7, 8, true);
+
+        for (int i = 0; i < numberOfFlashes; i++)
+        {
+            spriteRend.color = new Color(1, 0, 0, 0.5f);
+            yield return new WaitForSeconds(iFramesDuration / (numberOfFlashes * 2));
+            spriteRend.color = Color.white;
+            yield return new WaitForSeconds(iFramesDuration / (numberOfFlashes * 2));
+        }
+
+        Physics2D.IgnoreLayerCollision(7, 8, false);
     }
 
     void CheckPlayerInLineOfSight()
@@ -32,29 +65,14 @@ public class BossController : MonoBehaviour
         }
     }
 
-    void CheckPlayerAttack()
+    public void TakeDamage(float damage)
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Collider2D[] detectedObjects = Physics2D.OverlapCircleAll(transform.position, 2.0f, LayerMask.GetMask("Player"));
+        currentHealth -= damage;
 
-            foreach (Collider2D collider in detectedObjects)
-            {
-                PlayerCombatController playerCombat = collider.transform.GetComponent<PlayerCombatController>();
+        StartCoroutine(Invulnerability());
+        _healthBar.UpdateHealthBar(bossHealth, currentHealth);
 
-                if (playerCombat != null && playerCombat.IsAttacking())
-                {
-                    TakeDamage(playerCombat.GetAttackDamage());
-                }
-            }
-        }
-    }
-
-    void TakeDamage(float damage)
-    {
-        bossHealth -= damage;
-
-        if (bossHealth <= 0)
+        if (currentHealth <= 0)
         {
             Die();
         }

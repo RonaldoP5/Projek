@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
-
 public class EnemyShoot : MonoBehaviour
 {
     public GameObject bullet;
@@ -9,6 +9,7 @@ public class EnemyShoot : MonoBehaviour
 
     private float timer;
     private GameObject player;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +34,6 @@ public class EnemyShoot : MonoBehaviour
             }
         }
     }
-
     void shoot()
     {
         Instantiate(bullet, bulletPos.position, Quaternion.identity);

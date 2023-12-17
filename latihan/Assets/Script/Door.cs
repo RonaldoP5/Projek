@@ -20,7 +20,7 @@ public class Door : MonoBehaviour
     {
         float distanceToPlayer = Vector3.Distance(player.position, doorTransform.position);
 
-        if (Input.GetKeyDown(KeyCode.C) && distanceToPlayer <= openDistance)
+        if (Input.GetKeyDown(KeyCode.E) && distanceToPlayer <= openDistance)
         {
             if (!isOpen)
             {
