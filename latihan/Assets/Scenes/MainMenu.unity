@@ -1325,8 +1325,12 @@ MonoBehaviour:
   SFXSource: {fileID: 75036734}
   playerSFX: {fileID: 289989815}
   BGMCombat: {fileID: 0}
+  JumpSFX: {fileID: 0}
+  AttackSFX: {fileID: 0}
+  GameOver: {fileID: 0}
   background: {fileID: 8300000, guid: c3768135f6dc8aa43a1b15da5fcafb78, type: 3}
-  death: {fileID: 0}
+  trap: {fileID: 0}
+  trap2: {fileID: 0}
   checkpoint: {fileID: 0}
   potion: {fileID: 8300000, guid: ad3182f81954976409822beaa9b9d638, type: 3}
 --- !u!4 &397531323
@@ -2921,6 +2925,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 348038511}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

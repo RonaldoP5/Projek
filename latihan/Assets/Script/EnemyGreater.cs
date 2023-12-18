@@ -22,11 +22,11 @@ public class EnemyGreater : MonoBehaviour
     private int maxAttacks = 2;
     private PlayerHealth playerHealth;
 
-    //private Animator animator;
+    private Animator animator;
     void Start()
     {
         Debug.Log("Enemy Start");
-        //animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         originalSize = transform.localScale.x;
@@ -95,7 +95,7 @@ public class EnemyGreater : MonoBehaviour
         isAttacking = true;
 
         yield return new WaitForSeconds(preAttackDuration);
-        //animator.SetTrigger("IsAttackingEnemy");
+        animator.SetTrigger("Attack1");
 
 
         AttackPlayer();
@@ -115,7 +115,7 @@ public class EnemyGreater : MonoBehaviour
             audioManager.StopBgmCombat();
             audioManager.PlayMainBGM();
         }
-        //animator.SetTrigger("IdleEnemy");
+        animator.SetTrigger("IdleGreater");
         timeSinceLastAttack = 0.0f;
         StopCoroutine(PreAttack());
     }
