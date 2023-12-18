@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 40159051}
   - component: {fileID: 40159052}
   m_Layer: 0
-  m_Name: VideoPlayer (5)
+  m_Name: VideoPlayer (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153,7 +153,7 @@ VideoPlayer:
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
-  m_TargetTexture: {fileID: 8400000, guid: ba763d5da90a9c342975950e2ed8e6dd, type: 2}
+  m_TargetTexture: {fileID: 8400000, guid: f350846acae11cd4080d76dc95fa9499, type: 2}
   m_TimeReference: 0
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: <noninit>
@@ -339,15 +339,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1920699364}
   lines:
-  - No... No, this can't be... Mom? Dad?
-  - This... it's not burning like it should. I should be... gone. But I'm not. How?
-  - Am I... immune to their bites? How?
-  - dan bang restu
-  - wassalamualaikum
-  - awdpaskfliahwdkhasjhdvawjd
+  - I'm not hiding anymore. No one's here to protect me. I'll fight. I'll protect
+    myself.
+  - This was for games, for fun... but now, it's for survival.
   textSpeed: 0.02
   nextSceneName: 
-  videoPlayerController: {fileID: 2122298475}
+  videoPlayerController: {fileID: 1478363036}
 --- !u!114 &91430773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -888,7 +885,7 @@ GameObject:
   - component: {fileID: 220598631}
   - component: {fileID: 220598630}
   m_Layer: 5
-  m_Name: Video (2)
+  m_Name: Video (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -936,7 +933,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 8400000, guid: ba763d5da90a9c342975950e2ed8e6dd, type: 2}
+  m_Texture: {fileID: 8400000, guid: 7f6b55f1570043f4994c5c813d71ae9c, type: 2}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -1898,12 +1895,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1299619207}
   lines:
+  - ....
   - No... No, this can't be... Mom? Dad?
   - This... it's not burning like it should. I should be... gone. But I'm not. How?
   - Am I... immune to their bites? How?
   - dan bang restu
   - wassalamualaikum
-  - awdpaskfliahwdkhasjhdvawjd
   textSpeed: 0.02
   nextSceneName: 
   videoPlayerController: {fileID: 2122298475}
@@ -2256,7 +2253,7 @@ GameObject:
   - component: {fileID: 787999127}
   - component: {fileID: 787999126}
   m_Layer: 5
-  m_Name: Video (4)
+  m_Name: Video (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2282,7 +2279,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 8400000, guid: ba763d5da90a9c342975950e2ed8e6dd, type: 2}
+  m_Texture: {fileID: 8400000, guid: 46e74d8caf9a11a4eb2f59b873dc5092, type: 2}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -3075,7 +3072,7 @@ GameObject:
   - component: {fileID: 1204192288}
   - component: {fileID: 1204192287}
   m_Layer: 5
-  m_Name: Video (5)
+  m_Name: Video (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3101,7 +3098,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 8400000, guid: ba763d5da90a9c342975950e2ed8e6dd, type: 2}
+  m_Texture: {fileID: 8400000, guid: f350846acae11cd4080d76dc95fa9499, type: 2}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -3554,7 +3551,7 @@ GameObject:
   - component: {fileID: 1478363035}
   - component: {fileID: 1478363036}
   m_Layer: 0
-  m_Name: VideoPlayer (7)
+  m_Name: VideoPlayer (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3568,11 +3565,11 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1478363034}
   m_Enabled: 1
-  m_VideoClip: {fileID: 0}
+  m_VideoClip: {fileID: 32900000, guid: 8fd2a09859d49be4086a577bf2a3d8cb, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
-  m_TargetTexture: {fileID: 8400000, guid: dcf9a7af3995c6c4d8dbb4a2ab8e7473, type: 2}
+  m_TargetTexture: {fileID: 8400000, guid: ba763d5da90a9c342975950e2ed8e6dd, type: 2}
   m_TimeReference: 0
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: <noninit>
@@ -3585,7 +3582,7 @@ VideoPlayer:
   m_TargetAudioSources:
   - {fileID: 0}
   m_DirectAudioVolumes:
-  - 0.2
+  - 1
   m_Url: 
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
@@ -4201,7 +4198,7 @@ GameObject:
   - component: {fileID: 1563983350}
   - component: {fileID: 1563983349}
   m_Layer: 5
-  m_Name: Video (3)
+  m_Name: Video (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4227,7 +4224,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 8400000, guid: ba763d5da90a9c342975950e2ed8e6dd, type: 2}
+  m_Texture: {fileID: 8400000, guid: c89f82c975444334898b7419d383a80e, type: 2}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -4276,7 +4273,7 @@ GameObject:
   - component: {fileID: 1564844069}
   - component: {fileID: 1564844070}
   m_Layer: 0
-  m_Name: VideoPlayer (6)
+  m_Name: VideoPlayer (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4309,7 +4306,7 @@ VideoPlayer:
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
-  m_TargetTexture: {fileID: 8400000, guid: ba763d5da90a9c342975950e2ed8e6dd, type: 2}
+  m_TargetTexture: {fileID: 8400000, guid: 131a267f70b8570428dcbb06197b90f7, type: 2}
   m_TimeReference: 0
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: <noninit>
@@ -4444,7 +4441,7 @@ GameObject:
   - component: {fileID: 1612880421}
   - component: {fileID: 1612880422}
   m_Layer: 0
-  m_Name: VideoPlayer (2)
+  m_Name: VideoPlayer (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4477,7 +4474,7 @@ VideoPlayer:
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
-  m_TargetTexture: {fileID: 8400000, guid: ba763d5da90a9c342975950e2ed8e6dd, type: 2}
+  m_TargetTexture: {fileID: 8400000, guid: 7f6b55f1570043f4994c5c813d71ae9c, type: 2}
   m_TimeReference: 0
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: <noninit>
@@ -4664,7 +4661,7 @@ GameObject:
   - component: {fileID: 1649587644}
   - component: {fileID: 1649587643}
   m_Layer: 5
-  m_Name: Video (7)
+  m_Name: Video (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4690,7 +4687,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 8400000, guid: dcf9a7af3995c6c4d8dbb4a2ab8e7473, type: 2}
+  m_Texture: {fileID: 8400000, guid: ba763d5da90a9c342975950e2ed8e6dd, type: 2}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -5563,7 +5560,7 @@ GameObject:
   - component: {fileID: 1926245763}
   - component: {fileID: 1926245764}
   m_Layer: 0
-  m_Name: VideoPlayer (4)
+  m_Name: VideoPlayer (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5581,7 +5578,7 @@ VideoPlayer:
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
-  m_TargetTexture: {fileID: 8400000, guid: ba763d5da90a9c342975950e2ed8e6dd, type: 2}
+  m_TargetTexture: {fileID: 8400000, guid: 46e74d8caf9a11a4eb2f59b873dc5092, type: 2}
   m_TimeReference: 0
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: <noninit>
@@ -5647,7 +5644,7 @@ GameObject:
   - component: {fileID: 1934017598}
   - component: {fileID: 1934017597}
   m_Layer: 5
-  m_Name: Video (6)
+  m_Name: Video (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5673,7 +5670,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 8400000, guid: ba763d5da90a9c342975950e2ed8e6dd, type: 2}
+  m_Texture: {fileID: 8400000, guid: 131a267f70b8570428dcbb06197b90f7, type: 2}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -6124,7 +6121,7 @@ GameObject:
   - component: {fileID: 2142428511}
   - component: {fileID: 2142428512}
   m_Layer: 0
-  m_Name: VideoPlayer (3)
+  m_Name: VideoPlayer (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6142,7 +6139,7 @@ VideoPlayer:
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
-  m_TargetTexture: {fileID: 8400000, guid: ba763d5da90a9c342975950e2ed8e6dd, type: 2}
+  m_TargetTexture: {fileID: 8400000, guid: c89f82c975444334898b7419d383a80e, type: 2}
   m_TimeReference: 0
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: <noninit>
