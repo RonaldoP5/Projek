@@ -18,6 +18,8 @@ public class BossController : MonoBehaviour
     [SerializeField] private int numberOfFlashes;
     private SpriteRenderer spriteRend;
     private HealthBarEnemy _healthBar;
+    public float fadeDuration = 1f;
+    private bool isFading = false;
 
     void Start()
     {
@@ -78,16 +80,6 @@ public class BossController : MonoBehaviour
         }
     }
 
-    void Die()
-    {
-        isBossDead = true;
-
-        Destroy(gameObject);
-
-        // Add logic for boss death (e.g., play death animation, spawn particles, etc.)
-        // Note: You may want to disable the BossController component or set it to inactive to prevent further updates.;
-    }
-
     void SummonEnemies()
     {
         int summonedEnemyCount = 0;
@@ -103,4 +95,41 @@ public class BossController : MonoBehaviour
         }
 
     }
+    private void Die()
+    {
+        // Tambahkan logika kematian enemy di sini, misalnya memanggil animasi atau menghancurkan GameObject
+        if (!isFading)
+        {
+            StartCoroutine(FadeOutAndDestroy());
+        }
+    }
+    private IEnumerator FadeOutAndDestroy()
+    {
+        isFading = true;
+        float timer = 0f;
+
+        // Get all SpriteRenderers in the hierarchy
+        SpriteRenderer[] allSpriteRenderers = GetComponentsInChildren<SpriteRenderer>(true);
+
+        while (timer < fadeDuration)
+        {
+            float alpha = Mathf.Lerp(1f, 0f, timer / fadeDuration);
+
+            // Set the alpha for all SpriteRenderers
+            foreach (var spriteRenderer in allSpriteRenderers)
+            {
+                spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, alpha);
+            }
+
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        // Setelah fade selesai, hancurkan objek
+        Destroy(gameObject);
+
+        isBossDead = true;
+        isFading = false;
+    }
+
 }

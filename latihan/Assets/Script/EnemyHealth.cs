@@ -11,7 +11,8 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private float iFramesDuration;
     [SerializeField] private int numberOfFlashes;
     private SpriteRenderer spriteRend;
-
+    public float fadeDuration = 1f;
+    private bool isFading = false;
     private bool isPlayingAudio = false;
 
     private HealthBarEnemy _healthBar;
@@ -63,8 +64,28 @@ public class EnemyHealth : MonoBehaviour
     private void Die()
     {
         // Tambahkan logika kematian enemy di sini, misalnya memanggil animasi atau menghancurkan GameObject
+        if (!isFading)
+        {
+            StartCoroutine(FadeOutAndDestroy());
+        }
+    }
+    private IEnumerator FadeOutAndDestroy()
+    {
+        isFading = true;
+        float timer = 0f;
+
+        while (timer < fadeDuration)
+        {
+            float alpha = Mathf.Lerp(1f, 0f, timer / fadeDuration);
+            spriteRend.color = new Color(spriteRend.color.r, spriteRend.color.g, spriteRend.color.b, alpha);
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        // Setelah fade selesai, hancurkan objek
         Destroy(gameObject);
 
+        isFading = false;
         if (!isPlayingAudio)
         {
             isPlayingAudio = false;
