@@ -38,6 +38,10 @@ public class VideoPlayerController : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
     // Fungsi untuk menonaktifkan event OnMovieFinished
     public void DisableMovieFinishedEvent()
     {

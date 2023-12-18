@@ -110,4 +110,39 @@ public class DialogBox : MonoBehaviour
             textComponent.text = lines[index];
         }
     }
+
+    //----------------------------------------
+    void NextLineToMainMenu()
+    {
+        if (index < lines.Length - 1)
+        {
+            index++;
+            textComponent.text = string.Empty;
+            StartCoroutine(TypeLine());
+        }
+        else
+        {
+            StartCoroutine(TransitionToMainMenu());
+        }
+    }
+    IEnumerator TransitionToMainMenu()
+    {
+        // Wait for a short delay before transitioning to the next scene
+        yield return new WaitForSeconds(0.2f);
+
+        // Load the next scene
+        videoPlayerController.LoadMainMenu();
+    }
+    public void NextDialogueToMainMenu()
+    {
+        if (textComponent.text == lines[index])
+        {
+            NextLineToMainMenu();
+        }
+        else
+        {
+            StopAllCoroutines();
+            textComponent.text = lines[index];
+        }
+    }
 }
