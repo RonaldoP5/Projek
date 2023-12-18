@@ -18,7 +18,7 @@ public class DialogBox : MonoBehaviour
     void Start()
     {   
         textComponent.text = string.Empty;
-       // StartDialogue();
+        StartDialogue();
     }
 
     // Update is called once per frame

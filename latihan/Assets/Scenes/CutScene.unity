@@ -240,12 +240,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 469621075}
   lines:
-  - This... it's not burning like it should. I should be... gone. But I'm not. How?
-  - Am I... immune to their bites? How?
-  - bersama bang aldo
-  - dan bang restu
-  - wassalamualaikum
-  - awdpaskfliahwdkhasjhdvawjd
+  - ....
+  - This was for games, for fun... but now, it's for survival.
   textSpeed: 0.02
   nextSceneName: 
   videoPlayerController: {fileID: 1612880422}
@@ -339,9 +335,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1920699364}
   lines:
+  - ....
   - I'm not hiding anymore. No one's here to protect me. I'll fight. I'll protect
     myself.
-  - This was for games, for fun... but now, it's for survival.
   textSpeed: 0.02
   nextSceneName: 
   videoPlayerController: {fileID: 1478363036}
@@ -807,12 +803,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 802576921}
   lines:
-  - Halo semua 3
-  - saya disini
-  - bersama bang aldo
-  - dan bang restu
-  - wassalamualaikum
-  - awdpaskfliahwdkhasjhdvawjd
+  - ....
+  - For you, Mom, Dad... I'll make things right.
   textSpeed: 0.02
   nextSceneName: 
   videoPlayerController: {fileID: 2142428512}
@@ -1899,8 +1891,6 @@ MonoBehaviour:
   - No... No, this can't be... Mom? Dad?
   - This... it's not burning like it should. I should be... gone. But I'm not. How?
   - Am I... immune to their bites? How?
-  - dan bang restu
-  - wassalamualaikum
   textSpeed: 0.02
   nextSceneName: 
   videoPlayerController: {fileID: 2122298475}
@@ -2766,12 +2756,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 855507011}
   lines:
-  - Halo semua 4
-  - saya disini
-  - bersama bang aldo
-  - dan bang restu
-  - wassalamualaikum
-  - awdpaskfliahwdkhasjhdvawjd
+  - ...
+  - I can't lose someone else. Not like this. Not today!
   textSpeed: 0.02
   nextSceneName: 
   videoPlayerController: {fileID: 1926245764}
