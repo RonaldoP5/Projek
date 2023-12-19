@@ -5,12 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class TriggerNextScene : MonoBehaviour
 {
-
     [SerializeField] float delay;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("TriggerScene");
-        StartCoroutine(LoadNextLevel());
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("TriggerScene");
+            StartCoroutine(LoadNextLevel());
+        }
     }
 
     IEnumerator LoadNextLevel()
