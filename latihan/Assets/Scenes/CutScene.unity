@@ -704,12 +704,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 621205425}
   lines:
-  - Halo semua 5
-  - saya disini
-  - bersama bang aldo
-  - dan bang restu
-  - wassalamualaikum
-  - awdpaskfliahwdkhasjhdvawjd
+  - ...
+  - "That girl\u2026 a swarm of lynxes are going after her!"
   textSpeed: 0.02
   nextSceneName: 
   videoPlayerController: {fileID: 40159052}
@@ -1107,12 +1103,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1625245901}
   lines:
-  - Halo semua 6
-  - saya disini
-  - bersama bang aldo
-  - dan bang restu
-  - wassalamualaikum
-  - awdpaskfliahwdkhasjhdvawjd
+  - ...
+  - I can't lose someone else. Not like this. Not today!
   textSpeed: 0.02
   nextSceneName: 
   videoPlayerController: {fileID: 1564844070}
@@ -2757,7 +2749,8 @@ MonoBehaviour:
   textComponent: {fileID: 855507011}
   lines:
   - ...
-  - I can't lose someone else. Not like this. Not today!
+  - "I hope they\u2019re already gone\u2026"
+  - Huh?
   textSpeed: 0.02
   nextSceneName: 
   videoPlayerController: {fileID: 1926245764}
@@ -2947,6 +2940,7 @@ MonoBehaviour:
   JumpSFX: {fileID: 0}
   AttackSFX: {fileID: 0}
   GameOver: {fileID: 0}
+  attackfeedback: {fileID: 0}
   background: {fileID: 8300000, guid: c3768135f6dc8aa43a1b15da5fcafb78, type: 3}
   trap: {fileID: 0}
   trap2: {fileID: 0}

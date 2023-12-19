@@ -176,11 +176,9 @@ MonoBehaviour:
   textComponent: {fileID: 1487792350}
   lines:
   - ...
-  - Halo semua
-  - saya disini
-  - bersama bang aldo
-  - dan bang restu
-  - wassalamualaikum
+  - Hey, you!
+  - Are you okay?
+  - "Did they hurt you? Thank god you\u2019re not infected!"
   textSpeed: 0.02
   nextSceneName: 
   videoPlayerController: {fileID: 1573583537}
@@ -256,11 +254,8 @@ MonoBehaviour:
   textComponent: {fileID: 469621075}
   lines:
   - ...
-  - Halo semua 2
-  - saya disini
-  - bersama bang aldo
-  - dan bang restu
-  - wassalamualaikum
+  - No! Get away!
+  - Who are you?! What are you doing?!
   textSpeed: 0.02
   nextSceneName: 
   videoPlayerController: {fileID: 1612880422}
@@ -1248,11 +1243,8 @@ MonoBehaviour:
   textComponent: {fileID: 1299619207}
   lines:
   - ...
-  - Halo semua
-  - saya disini
-  - bersama bang aldo
-  - dan bang restu
-  - wassalamualaikum
+  - Go.
+  - Attack!
   textSpeed: 0.02
   nextSceneName: 
   videoPlayerController: {fileID: 2122298475}
@@ -1572,6 +1564,7 @@ MonoBehaviour:
   JumpSFX: {fileID: 0}
   AttackSFX: {fileID: 0}
   GameOver: {fileID: 0}
+  attackfeedback: {fileID: 0}
   background: {fileID: 8300000, guid: c3768135f6dc8aa43a1b15da5fcafb78, type: 3}
   trap: {fileID: 0}
   trap2: {fileID: 0}
