@@ -13,7 +13,8 @@ public class CameraController : MonoBehaviour
 
    public Vector3 positionOffset;
 
-   private void Awake()
+    public bool followVerticalMovement = true;
+    private void Awake()
    {
         target = GameObject.FindGameObjectWithTag("Player").transform;
    }

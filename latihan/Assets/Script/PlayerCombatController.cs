@@ -75,7 +75,7 @@ public class PlayerCombatController : MonoBehaviour
                
 
                 // CheckAttackHitBox will be called when the attack animation connects
-                Invoke("CheckAttackHitBox", 0.3f); // Adjust the delay based on your animation timing
+                //Invoke("CheckAttackHitBox", 0.3f); // Adjust the delay based on your animation timing
             }
         }
 

@@ -34,6 +34,8 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(float damageAmount)
     {
+        Debug.Log("TakeDamage called");
+        audioManager.AttackFeedBack();
         currentHealth -= damageAmount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         StartCoroutine(Invulnerability());

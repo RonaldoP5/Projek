@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BossController : MonoBehaviour
 {
+    AudioManager audioManager;
     public float bossHealth = 100f;
     public float currentHealth;
     public GameObject enemyPrefab;
@@ -23,6 +24,7 @@ public class BossController : MonoBehaviour
 
     void Start()
     {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         currentHealth = bossHealth;
         spriteRend = GetComponent<SpriteRenderer>();
         _healthBar = GetComponentInChildren<HealthBarEnemy>();
@@ -69,6 +71,8 @@ public class BossController : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        Debug.Log("TakeDamage called");
+        audioManager.AttackFeedBack();
         currentHealth -= damage;
 
         StartCoroutine(Invulnerability());
@@ -131,5 +135,6 @@ public class BossController : MonoBehaviour
         isBossDead = true;
         isFading = false;
     }
+
 
 }

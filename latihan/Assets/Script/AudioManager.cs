@@ -1,3 +1,4 @@
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour 
@@ -20,6 +21,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource AttackSFX;
 
     [SerializeField] AudioSource GameOver;
+
+    [SerializeField] AudioSource attackfeedback;
 
     [Header("--- Audio Clip ")]
 
@@ -110,5 +113,15 @@ public class AudioManager : MonoBehaviour
     public void BGMgameover()
     {
         GameOver.Play();
+    }
+
+    public void AttackFeedBack()
+    {
+        attackfeedback.Play();
+    }
+
+    public void StopAttackFB()
+    {
+        attackfeedback.Stop();
     }
 }
